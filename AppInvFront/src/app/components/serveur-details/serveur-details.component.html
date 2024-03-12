@@ -1,0 +1,333 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentServeur.id">
+      <h4>Serveur</h4>
+      <div>
+        <label><strong>ID:</strong></label> {{ currentServeur.id }}
+      </div>
+      <div>
+        <label><strong>App:</strong></label> {{ currentServeur.app }}
+      </div>
+      <div>
+        <label><strong>BDD:</strong></label> {{ currentServeur.bdd }}
+      </div>
+      <div>
+        <label><strong>ADM:</strong></label> {{ currentServeur.adm }}
+      </div>
+      <div>
+        <label><strong>IP:</strong></label> {{ currentServeur.ip }}
+      </div>
+      <div>
+        <label><strong>DNS:</strong></label> {{ currentServeur.dns }}
+      </div>
+      <div>
+        <label><strong>HOSTNAME:</strong></label> {{ currentServeur.hostname }}
+      </div>
+      <div>
+        <label><strong>OS:</strong></label> {{ currentServeur.os }}
+      </div>
+      <div>
+        <label><strong>PORT:</strong></label> {{ currentServeur.port }}
+      </div>
+      <div>
+        <label><strong>PATH:</strong></label> {{ currentServeur.path }}
+      </div>
+      <div>
+        <label><strong>SERVICES:</strong></label> {{ currentServeur.services_a_demarrer }}
+      </div>
+      <div>
+        <label><strong>ACESS:</strong></label> {{ currentServeur.acces }}
+      </div>
+      
+      <!-- Include other Serveur attributes similarly -->
+      <a class="badge badge-warning" routerLink="/serveurs/{{ currentServeur.id }}">
+        Edit
+      </a>
+    </div>
+  
+    <div *ngIf="!currentServeur.id">
+      <br />
+      <p>Please click on a Serveur...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="currentServeur.id" class="edit-form">
+      <h4>Serveur</h4>
+      <form>
+        <div class="form-group">
+          <label for="id">ID</label>
+          <input
+            type="text"
+            class="form-control"
+            id="id"
+            [(ngModel)]="currentServeur.id"
+            name="id"
+          />
+        </div>
+        <div class="form-group">
+          <label for="app">App</label>
+          <input
+            type="text"
+            class="form-control"
+            id="app"
+            [(ngModel)]="currentServeur.app"
+            name="app"
+          />
+        </div>
+      <div class="form-group">
+        <label for="bdd">Base de données</label>
+        <input
+          type="text"
+          class="form-control"
+          id="bdd"
+          [(ngModel)]="currentServeur.bdd"
+          name="bdd"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="adm">Administrateur</label>
+        <input
+          type="text"
+          class="form-control"
+          id="adm"
+          [(ngModel)]="currentServeur.adm"
+          name="adm"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="statut">Statut</label>
+        <input
+          type="text"
+          class="form-control"
+          id="statut"
+          [(ngModel)]="currentServeur.statut"
+          name="statut"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="details_ip">IP</label>
+        <input
+          type="text"
+          class="form-control"
+          id="details_ip"
+          [(ngModel)]="currentServeur.ip"
+          name="details_ip"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="details_dns">DNS</label>
+        <input
+          type="text"
+          class="form-control"
+          id="details_dns"
+          [(ngModel)]="currentServeur.dns"
+          name="details_dns"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="details_hostname">Hostname</label>
+        <input
+          type="text"
+          class="form-control"
+          id="details_hostname"
+          [(ngModel)]="currentServeur.hostname"
+          name="details_hostname"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="details_nature">Nature</label>
+        <input
+          type="text"
+          class="form-control"
+          id="details_nature"
+          [(ngModel)]="currentServeur.nature"
+          name="details_nature"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="details_phy_vm">Phy VM</label>
+        <input
+          type="text"
+          class="form-control"
+          id="details_phy_vm"
+          [(ngModel)]="currentServeur.phy_vm"
+          name="details_phy_vm"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="details_prod_int_pca">Prod Int PCA</label>
+        <input
+          type="text"
+          class="form-control"
+          id="details_prod_int_pca"
+          [(ngModel)]="currentServeur.prod_int_pca"
+          name="details_prod_int_pca"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="logiciels_version">Version</label>
+        <input
+          type="text"
+          class="form-control"
+          id="logiciels_version"
+          [(ngModel)]="currentServeur.version"
+          name="logiciels_version"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="logiciels_port">Port</label>
+        <input
+          type="number"
+          class="form-control"
+          id="logiciels_port"
+          [(ngModel)]="currentServeur.port"
+          name="logiciels_port"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="logiciels_path">Path</label>
+        <input
+          type="text"
+          class="form-control"
+          id="logiciels_path"
+          [(ngModel)]="currentServeur.path"
+          name="logiciels_path"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="cpu">CPU</label>
+        <input
+          type="number"
+          class="form-control"
+          id="cpu"
+          [(ngModel)]="currentServeur.cpu"
+          name="cpu"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="ram">RAM</label>
+        <input
+          type="number"
+          class="form-control"
+          id="ram"
+          [(ngModel)]="currentServeur.ram"
+          name="ram"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="disc">Disque</label>
+        <input
+          type="number"
+          class="form-control"
+          id="disc"
+          [(ngModel)]="currentServeur.disc"
+          name="disc"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="carte_rsx">Carte RSX</label>
+        <input
+          type="text"
+          class="form-control"
+          id="carte_rsx"
+          [(ngModel)]="currentServeur.carte_rsx"
+          name="carte_rsx"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="os">Système d'exploitation</label>
+        <input
+          type="text"
+          class="form-control"
+          id="os"
+          [(ngModel)]="currentServeur.os"
+          name="os"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="services_a_demarrer">Services à démarrer</label>
+        <input
+          type="text"
+          class="form-control"
+          id="services_a_demarrer"
+          [(ngModel)]="currentServeur.services_a_demarrer"
+          name="services_a_demarrer"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="flux_entrant">Flux entrant</label>
+        <input
+          type="text"
+          class="form-control"
+          id="flux_entrant"
+          [(ngModel)]="currentServeur.flux_entrant"
+          name="flux_entrant"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="flux_sortant">Flux sortant</label>
+        <input
+          type="text"
+          class="form-control"
+          id="flux_sortant"
+          [(ngModel)]="currentServeur.flux_sortant"
+          name="flux_sortant"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="acces">Accès</label>
+        <input
+          type="text"
+          class="form-control"
+          id="acces"
+          [(ngModel)]="currentServeur.acces"
+          name="acces"
+          required
+        />
+      </div>
+        <!-- Include other Serveur attributes similarly -->
+      </form>
+  
+      <button
+        class="badge badge-danger mr-2"
+        (click)="deleteServeur()"
+      >
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateServeur()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentServeur.id">
+      <br />
+      <p>Cannot access this Serveur...</p>
+    </div>
+  </ng-template>
+  
